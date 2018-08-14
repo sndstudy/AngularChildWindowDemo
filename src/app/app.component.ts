@@ -17,14 +17,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const componentFactory = this.factoryResolver.resolveComponentFactory(ChildComponent);
-    const componentRef = componentFactory.create(this.viewRef.injector);
-    const strHtml: string = componentRef.location.nativeElement.outerHTML;
-    componentRef.destroy();
+    // const componentFactory = this.factoryResolver.resolveComponentFactory(ChildComponent);
+    // const componentRef = componentFactory.create(this.viewRef.injector);
+    // const strHtml: string = componentRef.location.nativeElement.outerHTML;
+    // componentRef.destroy();
 
-    const windowItem = window.open('', 'hoge', 'width=800,height=500,location=no,scrollbars=yes');
-    windowItem.document.open();
-    windowItem.document.write(strHtml);
-    windowItem.document.close();
+
+    const windowItem =  window.open('./assets/child.html', 'hoge', 'width=800,height=500,location=no,scrollbars=yes');
+
+    setTimeout(() => {
+
+      windowItem.postMessage('hogehogehoge', '*');
+
+    }, 100);
+    // windowItem.document.open();
+    // windowItem.document.write('<html><head><style></style></head><body>');
+    // windowItem.document.write(strHtml);
+    // windowItem.document.write('</body></html>');
+    // windowItem.document.close();
   }
 }
