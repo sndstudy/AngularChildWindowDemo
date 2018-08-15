@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+// アニメーション関連
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,7 +12,8 @@ import { ChildComponent } from './child/child.component';
     ChildComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   entryComponents: [ChildComponent],
